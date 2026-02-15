@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() 
+{
+    int n;
+    printf("Enter number of rows and column for square matrix: ");
+    scanf("%d", &n);
+    int matrix[n][n];
+    // Read matrix
+    printf("Enter elements of matrix: \n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    int isIdentity = 1; // Assume it's identity matrix initially
+    // Check each element
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) {
+                // Diagonal element should be 1
+                if (matrix[i][j] != 1) {
+                    isIdentity = 0;
+                    break;
+                }
+            } else {
+                // Non-diagonal element should be 0
+                if (matrix[i][j] != 0) {
+                    isIdentity = 0;
+                    break;
+                }
+            }
+        }
+        if (!isIdentity) break;
+    }
+    // Print result
+    if (isIdentity) {
+        printf("Identity Matrix\n");
+    } else {
+        printf("Not an Identity Matrix\n");
+    }
+    return 0;
+}
