@@ -70,7 +70,7 @@ int main() {
         }
         else {
             printf("  Invalid command! Use insert, extractMin, or peek\n");
-            i--; // Don't count invalid operations
+            i--;
         }
     }
     
